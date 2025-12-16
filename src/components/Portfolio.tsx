@@ -1,27 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import studioProjectsCover from "@/assets/studio-projects-cover.jpeg";
 
 const projects = [
+  {
+    id: "studio-projects",
+    title: "Studio Projects",
+    category: "Industrial Design",
+    description: "Product sketches, models, and prototypes from Georgia Tech design studio",
+    image: studioProjectsCover,
+  },
   {
     id: "website-development",
     title: "Website Development",
     category: "UI/UX & Coding",
     description: "CS 1301 project using Streamlit, APIs, and JSON",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-  },
-  {
-    id: "graphic-design",
-    title: "Freelance Logo Design",
-    category: "Graphic Design",
-    description: "Brand identity and logo work for various clients",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=400&fit=crop",
-  },
-  {
-    id: "industrial-design",
-    title: "Studio Projects",
-    category: "Industrial Design",
-    description: "Product sketches, models, and prototypes",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop",
   },
   {
     id: "leadership",
@@ -33,6 +27,10 @@ const projects = [
 ];
 
 export const Portfolio = () => {
+  const handleProjectClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section id="portfolio" className="section-padding bg-card">
       <div className="max-w-7xl mx-auto">
@@ -46,7 +44,7 @@ export const Portfolio = () => {
             </h2>
           </div>
           <p className="text-muted-foreground font-body max-w-md">
-            Explore my work across UI/UX, graphic design, industrial design, and leadership.
+            Explore my work across industrial design, UI/UX, and leadership initiatives.
           </p>
         </div>
 
@@ -55,10 +53,11 @@ export const Portfolio = () => {
             <Link
               key={project.id}
               to={`/project/${project.id}`}
-              className="group block"
+              onClick={handleProjectClick}
+              className={`group block ${index === 0 ? "md:col-span-2" : ""}`}
             >
               <article className="card-hover bg-background overflow-hidden">
-                <div className="image-reveal aspect-[3/2]">
+                <div className={`image-reveal ${index === 0 ? "aspect-[2/1]" : "aspect-[3/2]"}`}>
                   <img
                     src={project.image}
                     alt={project.title}

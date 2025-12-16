@@ -26,7 +26,7 @@ export const Hero = () => {
                 Sophie Roach
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-body font-light leading-relaxed max-w-lg fade-in-up stagger-3">
-                A creative problem solver bridging Industrial Design with technical proficiency in Python and Adobe Creative Cloud. Detail-oriented, collaborative, and driven by user-focused design.
+                A creative problem solver who bridges Industrial Design with technical proficiency in CAD and Adobe Creative Cloud. Driven by user-focused design, I bring attention to detail and a collaborative spirit to every project.
               </p>
             </div>
 

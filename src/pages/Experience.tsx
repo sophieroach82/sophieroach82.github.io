@@ -1,30 +1,19 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
+import { useEffect } from "react";
 
 const experiences = [
-  {
-    title: "Freelance Graphic Designer",
-    organization: "Self-Employed",
-    period: "2024 – Present",
-    location: "Savannah, GA / Atlanta, GA",
-    description: [
-      "Collaborate with clients to design custom logos and brand identities using Adobe Creative Cloud",
-      "Reinforce creative problem-solving skills through iterative design processes",
-      "Deliver high-quality visual assets that meet client specifications and deadlines",
-      "Build lasting client relationships through clear communication and professional service",
-    ],
-  },
   {
     title: "DEI Vice President",
     organization: "Collegiate Panhellenic Council",
     period: "October 2025 – Present",
     location: "Georgia Tech, Atlanta, GA",
     description: [
-      "Lead initiatives to facilitate awareness and foster inclusive practices across Greek life",
-      "Hold bi-weekly meetings with chapter delegates to discuss DEI strategies and implementation",
-      "Manage inter-chapter communication and collaboration on diversity initiatives",
-      "Develop programming that promotes dialogue and understanding within the Panhellenic community",
+      "Leading initiatives that foster awareness and inclusive practices across Greek life",
+      "Facilitating bi-weekly meetings with chapter delegates to discuss DEI strategies",
+      "Managing inter-chapter communication and collaboration on diversity initiatives",
+      "Developing programming that promotes dialogue and understanding within the community",
     ],
   },
   {
@@ -34,9 +23,9 @@ const experiences = [
     location: "Savannah, GA",
     description: [
       "Managed social media platforms to showcase student achievements and school events",
-      "Used data-driven insights to enhance engagement and reach target audiences",
+      "Leveraged data-driven insights to enhance engagement and reach target audiences",
       "Coordinated with team members to develop content calendars and marketing strategies",
-      "Increased follower engagement by implementing new visual storytelling techniques",
+      "Increased follower engagement through new visual storytelling techniques",
     ],
   },
   {
@@ -46,14 +35,18 @@ const experiences = [
     location: "Savannah, GA",
     description: [
       "Developed strong time management and organizational skills",
-      "Built excellent interpersonal communication abilities with both children and parents",
-      "Demonstrated responsibility, reliability, and adaptability in various situations",
-      "Managed scheduling and maintained consistent, professional relationships with families",
+      "Built excellent interpersonal communication abilities with families",
+      "Demonstrated responsibility, reliability, and adaptability across various situations",
+      "Maintained consistent, professional relationships with multiple families",
     ],
   },
 ];
 
 const Experience = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -64,6 +57,7 @@ const Experience = () => {
           <div className="mb-16">
             <Link
               to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-body text-sm mb-8"
             >
               <ArrowLeft size={16} />
@@ -78,7 +72,7 @@ const Experience = () => {
                 Experience
               </h1>
               <p className="text-lg text-muted-foreground font-body font-light max-w-2xl">
-                A journey through design, leadership, and professional development.
+                A journey through leadership, design, and professional development.
               </p>
             </div>
           </div>
@@ -137,6 +131,14 @@ const Experience = () => {
               </p>
               <Link
                 to="/#contact"
+                onClick={() => {
+                  setTimeout(() => {
+                    const element = document.getElementById("contact");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }, 100);
+                }}
                 className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground font-body text-sm uppercase tracking-wider hover:bg-primary/90 transition-all duration-300"
               >
                 Get in Touch

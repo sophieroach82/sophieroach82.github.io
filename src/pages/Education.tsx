@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, GraduationCap, Award, BookOpen, Globe } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
+import { useEffect } from "react";
 
 const Education = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -13,6 +18,7 @@ const Education = () => {
           <div className="mb-16">
             <Link
               to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 font-body text-sm mb-8"
             >
               <ArrowLeft size={16} />
@@ -61,31 +67,20 @@ const Education = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div>
-                    <p className="text-sm uppercase tracking-wider text-muted-foreground mb-1">GPA</p>
-                    <p className="text-3xl font-display text-primary">3.56</p>
+                  <div className="flex items-center gap-2 mb-4">
+                    <BookOpen className="w-5 h-5 text-primary" />
+                    <h3 className="font-display text-lg text-foreground">Relevant Coursework</h3>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-5 h-5 text-primary" />
-                    <p className="text-foreground font-body">Zell Miller Scholarship Recipient</p>
+                  <div className="flex flex-wrap gap-3">
+                    {["Computer Science", "Graphic Design", "Fundamentals of Design Studio"].map((course) => (
+                      <span
+                        key={course}
+                        className="px-4 py-2 text-sm font-body bg-background border border-border text-muted-foreground"
+                      >
+                        {course}
+                      </span>
+                    ))}
                   </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-8 border-t border-border">
-                <div className="flex items-center gap-2 mb-4">
-                  <BookOpen className="w-5 h-5 text-primary" />
-                  <h3 className="font-display text-lg text-foreground">Relevant Coursework</h3>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {["Computer Science", "Graphic Design", "Fundamentals of Design Studio"].map((course) => (
-                    <span
-                      key={course}
-                      className="px-4 py-2 text-sm font-body bg-background border border-border text-muted-foreground"
-                    >
-                      {course}
-                    </span>
-                  ))}
                 </div>
               </div>
 
